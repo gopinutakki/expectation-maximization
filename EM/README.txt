@@ -2,6 +2,10 @@ Introduction to Bioinformatics, Summer 2012.
 Programing Project 2
 ############################################
 
+Operating System
+----------------
+
+The project was developed in the Java language, on Ubuntu Linux 12.04, Java version: OpenJdk 1.6.0_24
 
 The content
 ------------
