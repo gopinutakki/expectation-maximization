@@ -22,6 +22,8 @@ public class DiscoverMotifs {
 	static int initialRandomCount = 50;
 	// total iterations for each initial random alignment
 	static int iterationsCount = 500;
+	// input sequence file name
+	static String inputFile = null;
 	// pseudocount to prevent zero values
 	static int pseudocount = 1;
 
@@ -46,7 +48,7 @@ public class DiscoverMotifs {
 					.println("Could not read 'run.config' file for run configurations.");
 		}
 		seqs = new Sequences();
-		seqs.readSequences("Project2Seqs.fa");
+		seqs.readSequences(inputFile);
 
 		for (int looper = 0; looper < initialRandomCount; looper++) {
 			bw.write("\n\nInitial Random Alignment Run Number: " + (looper + 1)
@@ -440,6 +442,11 @@ public class DiscoverMotifs {
 				String[] opts1 = line.split(":");
 				if (opts1.length == 2) {
 					iterationsCount = Integer.parseInt(opts1[1].trim());
+				}
+			} else if (line.startsWith("input-seq-file")) {
+				String[] opts1 = line.split(":");
+				if (opts1.length == 2) {
+					inputFile = opts1[1].trim();
 				}
 			}
 		}
